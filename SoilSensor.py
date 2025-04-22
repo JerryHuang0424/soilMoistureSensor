@@ -13,14 +13,15 @@ GPIO.setup(channel, GPIO.IN)
 
 def callback(channel):
 	if GPIO.input(channel):
-		print("Water Detected!")
+		print("Water lack!")
 	else:
-		print("Water Detected!")
+		print("Not need water!")
 		
-GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime = 300)
-GPIO.add_event_callback(channel,callback)
+# GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime = 300)
+# GPIO.add_event_callback(channel,callback)
 
 # infinite loop
 while True:
-	time.sleep(0)
+	callback(channel)
+	time.sleep(30)
 	
